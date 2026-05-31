@@ -46,6 +46,10 @@ const I18N = {
     "build.b2.li2": "Works with standard pipped dice you can buy in bulk",
     "build.b2.li3": "Glue the finished mosaic to a board to hang it on your wall",
 
+    "inspo.kicker": "Inspiration",
+    "inspo.title": "Your photo, turned into dice art",
+    "inspo.subtitle": "See what's possible — every image below started as an ordinary photo.",
+
     "feat.kicker": "Features",
     "feat.title": "Everything you need to build dice art",
     "feat.subtitle": "Powerful options, all on-device and private.",
@@ -159,6 +163,10 @@ const I18N = {
     "build.b2.li1": "Wkładaj kostki w siatkę rząd po rzędzie",
     "build.b2.li2": "Działa ze standardowymi kostkami z oczkami, dostępnymi hurtowo",
     "build.b2.li3": "Gotową mozaikę przyklej do podkładu i powieś na ścianie",
+
+    "inspo.kicker": "Inspiracje",
+    "inspo.title": "Twoje zdjęcie jako mozaika z kostek",
+    "inspo.subtitle": "Przekonaj się, co jest możliwe — każdy z tych obrazów zaczął się od zwykłego zdjęcia.",
 
     "feat.kicker": "Funkcje",
     "feat.title": "Wszystko, czego potrzebujesz do sztuki z kostek",
@@ -302,4 +310,52 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.12 }
   );
   document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+  // inspiration carousel
+  const carousel = document.querySelector(".inspo-carousel");
+  if (carousel) {
+    const slides = Array.from(carousel.querySelectorAll(".inspo-slide"));
+    const dotsWrap = carousel.querySelector(".inspo-dots");
+    let current = 0;
+    let timer = null;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.className = "inspo-dot" + (i === 0 ? " active" : "");
+      dot.setAttribute("role", "tab");
+      dot.setAttribute("aria-label", "Slide " + (i + 1));
+      dot.addEventListener("click", () => { goTo(i); resetTimer(); });
+      dotsWrap.appendChild(dot);
+    });
+
+    function goTo(n) {
+      slides[current].classList.remove("active");
+      dotsWrap.children[current].classList.remove("active");
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add("active");
+      dotsWrap.children[current].classList.add("active");
+    }
+
+    function startTimer() { timer = setInterval(() => goTo(current + 1), 4000); }
+    function resetTimer() { clearInterval(timer); startTimer(); }
+
+    carousel.querySelector(".inspo-prev").addEventListener("click", () => { goTo(current - 1); resetTimer(); });
+    carousel.querySelector(".inspo-next").addEventListener("click", () => { goTo(current + 1); resetTimer(); });
+
+    carousel.addEventListener("mouseenter", () => clearInterval(timer));
+    carousel.addEventListener("mouseleave", startTimer);
+
+    // touch / swipe support
+    let touchX = null;
+    carousel.addEventListener("touchstart", (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+    carousel.addEventListener("touchend", (e) => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) { goTo(current + (dx < 0 ? 1 : -1)); resetTimer(); }
+      touchX = null;
+    }, { passive: true });
+
+    slides[0].classList.add("active");
+    startTimer();
+  }
 });

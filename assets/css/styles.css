@@ -352,6 +352,81 @@ section { padding: 64px 0; }
 .feature h3 { margin: 0 0 6px; font-size: 1.12rem; }
 .feature p { margin: 0; color: var(--ink-soft); font-size: .96rem; }
 
+/* inspiration carousel */
+.inspo-carousel {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.inspo-track {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  background: var(--charcoal);
+  aspect-ratio: 1 / 1;
+}
+.inspo-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .55s ease;
+}
+.inspo-slide.active { opacity: 1; }
+.inspo-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.inspo-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(247, 239, 224, 0.92);
+  border: 1.5px solid var(--card-border);
+  cursor: pointer;
+  font-size: 1.8rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-sm);
+  color: var(--ink);
+  transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
+  z-index: 2;
+  padding: 0;
+}
+.inspo-btn:hover {
+  background: #fff;
+  box-shadow: var(--shadow);
+  transform: translateY(-50%) scale(1.1);
+}
+.inspo-prev { left: -23px; }
+.inspo-next { right: -23px; }
+.inspo-dots {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 20px;
+}
+.inspo-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--card-border);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background .2s ease, transform .2s ease;
+}
+.inspo-dot.active {
+  background: var(--accent);
+  transform: scale(1.35);
+}
+
 /* gallery */
 .gallery {
   display: grid;
@@ -516,6 +591,8 @@ section { padding: 64px 0; }
   .gallery { grid-template-columns: repeat(3, 1fr); }
   .getit-grid, .getit-grid.reverse { grid-template-columns: 1fr; direction: ltr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .inspo-prev { left: 8px; }
+  .inspo-next { right: 8px; }
 }
 
 @media (max-width: 640px) {
