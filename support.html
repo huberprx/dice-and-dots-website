@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260605-support2" />
 </head>
 <body>
 
@@ -184,7 +184,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/i18n.js?v=20260605-support2"></script>
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
   <script>
     (function () {
@@ -220,6 +220,29 @@
         resultBox.className = "form-result";
 
         const data = new FormData(form);
+        const requestType = hiddenType.value || "Other";
+
+        if (form.action.includes("YOUR_FORM_ID")) {
+          const name = form.querySelector("#f-name").value.trim();
+          const subject = encodeURIComponent("Dice & Dots support: " + requestType);
+          const body = encodeURIComponent(
+            "Type: " + requestType + "\n" +
+            "Name: " + (name || "-") + "\n" +
+            "Email: " + email + "\n\n" +
+            msg
+          );
+
+          window.location.href = "mailto:szaroczarnytrzmiel@gmail.com?subject=" + subject + "&body=" + body;
+          resultBox.className = "form-result success";
+          resTitle.textContent = lang === "pl" ? "Wiadomość gotowa do wysłania" : "Message ready to send";
+          resText.textContent = lang === "pl"
+            ? "Otworzyliśmy aplikację pocztową z przygotowaną wiadomością. Wyślij ją, żeby zgłoszenie do nas dotarło."
+            : "Your e-mail app should open with a prepared message. Send it so the request reaches us.";
+          submitLbl.textContent = dict["support.form.submit"] || "Send message";
+          submitBtn.disabled = false;
+          resultBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          return;
+        }
 
         try {
           const res = await fetch(form.action, {
