@@ -10,6 +10,7 @@ const I18N = {
     "nav.features": "Features",
     "nav.pricing": "Pricing",
     "nav.faq": "FAQ",
+    "nav.support": "Support",
     "nav.cta": "Get the app",
 
     "hero.eyebrow": "Photo → printable dice mosaic",
@@ -119,7 +120,27 @@ const I18N = {
     "footer.rights": "All rights reserved.",
     "footer.madeby": "By Hubert Przychodniak",
 
-    "legal.back": "Back to home"
+    "legal.back": "Back to home",
+
+    "support.kicker": "Support",
+    "support.title": "We're here to help",
+    "support.subtitle": "Got a bug, an idea, or just a question? Fill out the form and we'll get back to you.",
+    "support.form.type.label": "Type of request",
+    "support.form.type.bug": "🐛  Bug report",
+    "support.form.type.feature": "💡  Feature request / Idea",
+    "support.form.type.question": "❓  Question",
+    "support.form.type.other": "✉️  Other",
+    "support.form.name.label": "Your name",
+    "support.form.name.placeholder": "Optional",
+    "support.form.email.label": "Your e-mail",
+    "support.form.email.placeholder": "So we can reply to you",
+    "support.form.message.label": "Message",
+    "support.form.message.placeholder": "Describe the issue or share your idea…",
+    "support.form.submit": "Send message",
+    "support.form.sending": "Sending…",
+    "support.form.success.title": "Message sent! 🎉",
+    "support.form.success.text": "Thank you — we'll get back to you as soon as possible.",
+    "support.form.error": "Something went wrong. Please try again or e-mail us directly at szaroczarnytrzmiel@gmail.com"
   },
 
   pl: {
@@ -128,6 +149,7 @@ const I18N = {
     "nav.features": "Funkcje",
     "nav.pricing": "Cennik",
     "nav.faq": "FAQ",
+    "nav.support": "Wsparcie",
     "nav.cta": "Pobierz aplikację",
 
     "hero.eyebrow": "Zdjęcie → mozaika z kostek do druku",
@@ -237,7 +259,27 @@ const I18N = {
     "footer.rights": "Wszelkie prawa zastrzeżone.",
     "footer.madeby": "Autor: Hubert Przychodniak",
 
-    "legal.back": "Powrót na stronę główną"
+    "legal.back": "Powrót na stronę główną",
+
+    "support.kicker": "Wsparcie",
+    "support.title": "Jesteśmy, by pomóc",
+    "support.subtitle": "Masz błąd do zgłoszenia, pomysł na nową funkcję albo pytanie? Wypełnij formularz, a odezwiemy się do Ciebie.",
+    "support.form.type.label": "Rodzaj zgłoszenia",
+    "support.form.type.bug": "🐛  Zgłoszenie błędu",
+    "support.form.type.feature": "💡  Prośba o funkcję / Pomysł",
+    "support.form.type.question": "❓  Pytanie",
+    "support.form.type.other": "✉️  Inne",
+    "support.form.name.label": "Twoje imię",
+    "support.form.name.placeholder": "Opcjonalnie",
+    "support.form.email.label": "Twój e-mail",
+    "support.form.email.placeholder": "Żebyśmy mogli odpowiedzieć",
+    "support.form.message.label": "Wiadomość",
+    "support.form.message.placeholder": "Opisz problem lub podziel się pomysłem…",
+    "support.form.submit": "Wyślij wiadomość",
+    "support.form.sending": "Wysyłanie…",
+    "support.form.success.title": "Wiadomość wysłana! 🎉",
+    "support.form.success.text": "Dziękujemy — odezwiemy się do Ciebie jak najszybciej.",
+    "support.form.error": "Coś poszło nie tak. Spróbuj ponownie lub napisz do nas bezpośrednio na szaroczarnytrzmiel@gmail.com"
   }
 };
 
