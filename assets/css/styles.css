@@ -367,6 +367,11 @@ section { padding: 64px 0; }
   background: var(--charcoal);
   aspect-ratio: 1 / 1;
 }
+/* Fallback for browsers without aspect-ratio (older mobile Safari/Chrome):
+   keep the track square via padding so absolutely-positioned slides stay visible. */
+@supports not (aspect-ratio: 1 / 1) {
+  .inspo-track { height: 0; padding-top: 100%; }
+}
 .inspo-slide {
   position: absolute;
   inset: 0;
