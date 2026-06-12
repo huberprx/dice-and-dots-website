@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260605-support2" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260612-multilang" />
 </head>
 <body>
 
@@ -27,10 +27,7 @@
         <span>Dice &amp; Dots</span>
       </a>
       <div class="nav-actions" style="margin-left:auto">
-        <div class="lang-toggle" role="group" aria-label="Language">
-          <button data-set-lang="en">EN</button>
-          <button data-set-lang="pl">PL</button>
-        </div>
+        <select class="lang-select" aria-label="Language / Język"></select>
         <a class="btn btn-ghost" href="support.html" data-i18n="nav.support" style="margin-right:4px">Support</a>
         <a class="btn btn-ghost" href="index.html" data-i18n="legal.back">Back to home</a>
       </div>
@@ -155,7 +152,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/i18n.js?v=20260605-support2"></script>
+  <script src="assets/js/i18n.js?v=20260612-multilang"></script>
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
